@@ -64,13 +64,14 @@ def main():
             elif event.type == pygame.MOUSEBUTTONDOWN\
                     and event.button == 1:
                 x, y = event.pos
-                row = round((y - 40) / 40)
-                col = round((x - 40) / 40)
-                if board.move(row, col, is_black):
-                    is_black = not is_black
-                    screen.fill([255, 255, 0])
-                    board.draw(screen)
-                    pygame.display.flip()
+                if (x, y) > (20, 20) and (x, y) < (620, 620):
+                    row = round((y - 40) / 40)
+                    col = round((x - 40) / 40)
+                    if board.move(row, col, is_black):
+                        is_black = not is_black
+                        screen.fill([255, 255, 0])
+                        board.draw(screen)
+                        pygame.display.flip()
     pygame.quit()
 
 
